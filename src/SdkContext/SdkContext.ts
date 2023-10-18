@@ -1,8 +1,8 @@
-import { SDK } from "dc-extensions-sdk";
+import { ContentFieldExtension } from "dc-extensions-sdk";
 import React from "react";
 
 export interface SdkContextProps {
-  sdk?: SDK;
+  sdk?: ContentFieldExtension;
 }
 
 const context = React.createContext<SdkContextProps>({});
