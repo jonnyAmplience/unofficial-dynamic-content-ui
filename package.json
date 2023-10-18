@@ -47,7 +47,7 @@
     "clsx": "^1.0.4",
     "copyfiles": "^2.1.1",
     "dc-delivery-sdk-js": "^0.3.0",
-    "dc-extensions-sdk": "^1.2.0",
+    "dc-extensions-sdk": "^2.3.0",
     "material-ui-popup-state": "^2.0.0",
     "rc-tree": "^3.0.0-rc.1",
     "react": "^16.9.0",

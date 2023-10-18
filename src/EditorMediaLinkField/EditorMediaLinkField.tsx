@@ -5,11 +5,10 @@ import {
   Tooltip,
   Typography,
   withStyles,
-  WithStyles
+  WithStyles,
 } from "@material-ui/core";
 import { KeyboardArrowDown, KeyboardArrowRight } from "@material-ui/icons";
 import clsx from "clsx";
-import { SDK } from "dc-extensions-sdk";
 import CardContainer from "../Chooser/Chooser";
 import CardContainerActions from "../ChooserActions";
 import CollapsibleSection from "../CollapsibleSection";
@@ -23,15 +22,15 @@ import StyledFab from "../StyledFab";
 
 export const styles = {
   root: {
-    width: "100%"
+    width: "100%",
   },
   collapsibleBody: {
-    padding: "0px"
+    padding: "0px",
   },
   header: {
     display: "inline-flex",
-    "vertical-align": "middle"
-  }
+    "vertical-align": "middle",
+  },
 };
 
 export interface EditorMediaLinkFieldProps
@@ -57,7 +56,9 @@ const EditorMediaLinkField: React.SFC<EditorMediaLinkFieldProps> = (
       "http://bigcontent.io/cms/schema/v1/core#/definitions/video-link"
     ) !== -1;
 
-  const hasValue = (value != null && value._meta && value._meta.schema) || (schema.default && schema.default._meta && schema.default._meta.schema);
+  const hasValue =
+    (value != null && value._meta && value._meta.schema) ||
+    (schema.default && schema.default._meta && schema.default._meta.schema);
 
   const [localValue, setValue] = React.useState(schema.default || value);
   const handleBrowse = React.useCallback(async () => {
@@ -74,7 +75,7 @@ const EditorMediaLinkField: React.SFC<EditorMediaLinkFieldProps> = (
   }, [onChange, sdk]);
 
   const handleDelete = React.useCallback(
-    event => {
+    (event) => {
       if (onChange) {
         setValue(undefined);
         onChange(undefined);

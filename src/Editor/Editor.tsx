@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ErrorReport, SDK } from "dc-extensions-sdk";
+import { ErrorReport } from "dc-extensions-sdk";
 import { EditorFieldParentType } from "../EditorField";
 import EditorField from "../EditorField/EditorField";
 import { EditorRegistry, getDefaultRegistry } from "../EditorRegistry";
@@ -21,7 +21,7 @@ const Editor: React.SFC<EditorProps> = (props: EditorProps) => {
     schema,
     registry = getDefaultRegistry(),
     pointer = "",
-    onChange
+    onChange,
   } = props;
 
   const [value, setValue] = React.useState(props.value);
@@ -29,7 +29,7 @@ const Editor: React.SFC<EditorProps> = (props: EditorProps) => {
 
   const { sdk } = React.useContext(SdkContext);
 
-  const [validateValue] = useDebouncedCallback(async newValue => {
+  const [validateValue] = useDebouncedCallback(async (newValue) => {
     if (sdk && sdk.field && sdk.field.validate) {
       const newErrorReport = await sdk.field.validate(newValue);
       setErrorReport(newErrorReport as ErrorReport[]);
